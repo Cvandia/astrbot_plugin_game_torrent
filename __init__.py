@@ -1,0 +1,1 @@
+"""AstrBot game torrent plugin."""
