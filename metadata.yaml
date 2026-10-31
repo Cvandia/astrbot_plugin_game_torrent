@@ -1,7 +1,7 @@
 name: astrbot_plugin_game_torrent
 display_name: 游戏种子搜索
 short_desc: 搜索游戏资源，支持四个网站、交互选取与二维码
-desc: 基于 nonebot-plugin-game-torrent 适配 AstrBot，支持 Aimhaven、Fitgirl、123资源库和 Gamer520，提供公开资源链接查询、源切换与二维码发送。
+desc: 基于Astrbot开发的游戏种子搜索插件，支持 Aimhaven、Fitgirl、123资源库和 Gamer520，提供公开资源链接查询、源切换与二维码发送。
 version: 0.1.0
 author: Cvandia
 repo: https://github.com/Cvandia/astrbot_plugin_game_torrent
