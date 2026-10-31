@@ -1,6 +1,13 @@
 <div align="center">
 
+<a href="https://cloud.astrbot.app/market"><img src="logo.png" width="180" height="180" alt="PluginLogo" style="border-radius: 50%;"></a>
+
+</div>
+
+<div align="center">
+
 # astrbot_plugin_game_torrent
+
 
 _⭐ 基于 AstrBot 的游戏资源搜索插件 ⭐_
 
