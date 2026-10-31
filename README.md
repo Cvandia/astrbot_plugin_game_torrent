@@ -12,13 +12,12 @@ _⭐ 基于 AstrBot 的游戏资源搜索插件 ⭐_
 
 ## ⭐ 介绍
 
-将 [nonebot-plugin-game-torrent](https://github.com/Cvandia/nonebot-plugin-game-torrent) 的公开页面搜索与资源解析功能移植到 [AstrBot](https://github.com/AstrBotDevs/AstrBot)，支持搜索游戏、回复编号获取资源链接、切换网站和发送二维码。
+支持搜索游戏、回复编号获取资源链接、切换网站和发送二维码。
 
 - 四个来源：Aimhaven、Fitgirl、123资源库、Gamer520。
 - 使用 AstrBot 原生命令与会话等待接口，支持群聊和私聊；群内不同用户的结果选择相互隔离。
 - 源切换立即持久化，重启后恢复；进行中的搜索始终使用开始时的网站。
 - WebUI 可配置默认源、发送格式、二维码、代理、请求超时和结果数量。
-- 不依赖 NoneBot、Alconna 或 localstore。
 
 ## 📜 使用声明
 
