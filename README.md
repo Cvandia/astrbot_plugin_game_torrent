@@ -1,0 +1,2 @@
+# astrbot_plugin_game_torrent
+astrbot的游戏搜索插件
