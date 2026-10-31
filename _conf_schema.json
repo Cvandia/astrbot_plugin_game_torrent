@@ -1,0 +1,45 @@
+{
+  "default_source": {
+    "description": "默认游戏源",
+    "type": "string",
+    "default": "Aimhaven",
+    "options": ["Aimhaven", "Fitgirl", "123资源库", "Gamer520"],
+    "hint": "首次启动或存储损坏时使用；已保存的指令切换结果优先。"
+  },
+  "torrent_send_format": {
+    "description": "资源发送格式",
+    "type": "text",
+    "default": "game: {game_name}\nsize: {size}\nlast_update: {last_update}\nmagnet: {magnet}\n",
+    "hint": "支持 {game_name}、{size}、{last_update}、{magnet}、{torrent_path}、{is_hacked}。"
+  },
+  "magnet_to_qrcode": {
+    "description": "附加资源链接二维码",
+    "type": "bool",
+    "default": false,
+    "hint": "开启后在文字链接后附加二维码，图片发送能力取决于平台适配器。"
+  },
+  "request_timeout": {
+    "description": "HTTP 请求超时（秒）",
+    "type": "int",
+    "default": 30,
+    "slider": {"min": 5, "max": 120, "step": 1}
+  },
+  "session_timeout": {
+    "description": "交互等待超时（秒）",
+    "type": "int",
+    "default": 60,
+    "slider": {"min": 10, "max": 300, "step": 1}
+  },
+  "max_results": {
+    "description": "最大搜索结果数量",
+    "type": "int",
+    "default": 10,
+    "slider": {"min": 1, "max": 30, "step": 1}
+  },
+  "proxy": {
+    "description": "HTTP 代理地址（可选）",
+    "type": "string",
+    "default": "",
+    "hint": "例如 http://127.0.0.1:7890；留空时遵循 HTTPX 的系统环境代理设置。Docker 内请使用容器可访问的地址。"
+  }
+}
