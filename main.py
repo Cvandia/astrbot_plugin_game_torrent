@@ -254,4 +254,3 @@ class GameTorrentPlugin(Star):
             task.cancel()
         await asyncio.gather(*tasks, return_exceptions=True)
         await self.manager.aclose()
-
