@@ -204,3 +204,39 @@ def test_schema_metadata_defaults_and_format():
     for template in ["{unknown}", "{game_name.__class__}", "{magnet:{size}}", "{", ""]:
         with pytest.raises(ValidationError):
             Settings(torrent_send_format=template)
+
+
+async def test_llm_search_returns_pages_without_interaction(plugin_api):
+    api = plugin_api
+    plugin, fetcher = make_plugin(api, {"max_results": 1})
+    fetcher.search.return_value *= 2
+    event = api.Event("帮我搜索 Test Game")
+    result = json.loads(await plugin.search_game_torrent(event, "  Test Game  "))
+    fetcher.search.assert_awaited_once_with("Test Game")
+    assert result["source"] == fetcher.fetch_name
+    assert len(result["results"]) == 1
+    assert result["results"][0]["game_name"] == "Test Game"
+    assert result["results"][0]["url"].startswith("https://")
+    assert not event.sent
+    assert not event.stopped
+    assert not api.waiter.USER_SESSIONS
+    fetcher.fetch.assert_not_awaited()
+    await plugin.terminate()
+
+
+async def test_llm_search_validation_empty_and_error(plugin_api):
+    api = plugin_api
+    plugin, fetcher = make_plugin(api)
+    event = api.Event()
+    assert "不能为空" in await plugin.search_game_torrent(event, " ")
+    fetcher.search.assert_not_awaited()
+    fetcher.search.return_value = []
+    result = json.loads(await plugin.search_game_torrent(event, "missing"))
+    assert result["results"] == []
+    assert "未找到" in result["message"]
+    fetcher.search.side_effect = RequestError("HTTP 403")
+    assert "请求失败" in await plugin.search_game_torrent(event, "test")
+    await plugin.terminate()
+    fetcher.search.reset_mock()
+    assert "关闭" in await plugin.search_game_torrent(event, "test")
+    fetcher.search.assert_not_awaited()
