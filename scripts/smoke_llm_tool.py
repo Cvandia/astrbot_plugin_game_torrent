@@ -18,7 +18,7 @@ from astrbot.core.provider.register import llm_tools  # noqa: E402
 
 tool = next(item for item in llm_tools.func_list if item.name == "search_game_torrent")
 assert tool.parameters["properties"]["keyword"]["type"] == "string"
-assert "keyword" in tool.parameters["required"]
+assert set(tool.parameters["properties"]) == {"keyword"}
 assert tool.handler is main.GameTorrentPlugin.search_game_torrent
 
 
