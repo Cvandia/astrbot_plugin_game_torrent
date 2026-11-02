@@ -70,6 +70,7 @@ def plugin_api(monkeypatch, tmp_path):
     modules["astrbot.api.event"].AstrMessageEvent = Event
     modules["astrbot.api.event"].filter = SimpleNamespace(
         command=lambda *args, **kwargs: lambda fn: fn,
+        llm_tool=lambda *args, **kwargs: lambda fn: fn,
     )
     modules["astrbot.api.message_components"].Image = SimpleNamespace(fromBytes=lambda data: data)
     modules["astrbot.core.platform"].AstrMessageEvent = Event
