@@ -18,3 +18,7 @@ jobs:
       - run: ruff check .
       - run: ruff format --check .
       - run: pytest -q
+      - run: pip install astrbot==4.17.0
+        if: matrix.python == '3.12'
+      - run: python scripts/smoke_llm_tool.py
+        if: matrix.python == '3.12'

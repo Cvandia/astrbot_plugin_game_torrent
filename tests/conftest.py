@@ -15,6 +15,11 @@ package = ModuleType("astrbot_plugin_game_torrent")
 package.__path__ = [str(ROOT)]
 sys.modules[package.__name__] = package
 
+# SourceManager imports the framework logger during test collection.
+api_stub = ModuleType("astrbot.api")
+api_stub.logger = logging.getLogger("test")
+sys.modules["astrbot.api"] = api_stub
+
 
 class Event:
     def __init__(self, text="", user="alice", origin="test:GroupMessage:group"):
@@ -70,6 +75,7 @@ def plugin_api(monkeypatch, tmp_path):
     modules["astrbot.api.event"].AstrMessageEvent = Event
     modules["astrbot.api.event"].filter = SimpleNamespace(
         command=lambda *args, **kwargs: lambda fn: fn,
+        llm_tool=lambda *args, **kwargs: lambda fn: fn,
     )
     modules["astrbot.api.message_components"].Image = SimpleNamespace(fromBytes=lambda data: data)
     modules["astrbot.core.platform"].AstrMessageEvent = Event

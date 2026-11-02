@@ -4,9 +4,9 @@ import asyncio
 import json
 from pathlib import Path
 
-from .fetcher import AHF, FGF, G520F, ZYKF, BaseFetcher
-
 from astrbot.api import logger
+
+from .fetcher import AHF, FGF, G520F, ZYKF, BaseFetcher
 
 
 class SourceManager:
