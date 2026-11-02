@@ -162,3 +162,11 @@ pytest -q
 - [AstrBot](https://github.com/AstrBotDevs/AstrBot)：插件框架与原生会话接口。
 
 本项目使用 [MIT License](LICENSE)。
+
+## 🙌 感谢以下开发者
+
+感谢所有为本项目贡献代码、完善文档和修复问题的开发者！
+
+<a href="https://github.com/Cvandia/astrbot_plugin_game_torrent/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Cvandia/astrbot_plugin_game_torrent&max=100" alt="项目贡献者" />
+</a>
