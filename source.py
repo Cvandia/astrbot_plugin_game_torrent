@@ -2,12 +2,11 @@
 
 import asyncio
 import json
-import logging
 from pathlib import Path
 
 from .fetcher import AHF, FGF, G520F, ZYKF, BaseFetcher
 
-logger = logging.getLogger(__name__)
+from astrbot.api import logger
 
 
 class SourceManager:
