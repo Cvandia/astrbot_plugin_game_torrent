@@ -15,6 +15,11 @@ package = ModuleType("astrbot_plugin_game_torrent")
 package.__path__ = [str(ROOT)]
 sys.modules[package.__name__] = package
 
+# SourceManager imports the framework logger during test collection.
+api_stub = ModuleType("astrbot.api")
+api_stub.logger = logging.getLogger("test")
+sys.modules["astrbot.api"] = api_stub
+
 
 class Event:
     def __init__(self, text="", user="alice", origin="test:GroupMessage:group"):
