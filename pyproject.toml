@@ -1,6 +1,6 @@
 [project]
 name = "astrbot-plugin-game-torrent"
-version = "0.1.0"
+version = "0.1.1"
 description = "AstrBot 游戏资源搜索插件"
 requires-python = ">=3.12"
 dependencies = ["httpx>=0.27,<1", "beautifulsoup4>=4.12,<5", "pydantic>=2,<3", "qrcode[pil]>=8,<9"]
