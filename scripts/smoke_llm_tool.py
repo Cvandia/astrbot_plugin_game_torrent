@@ -1,4 +1,5 @@
 """Smoke test against the installed AstrBot API, without a model credential."""
+
 import asyncio
 import importlib
 import json
@@ -25,9 +26,7 @@ async def check():
     fetcher = SimpleNamespace(
         fetch_name="SmokeSource",
         base_url="https://example.com",
-        search=AsyncMock(
-            return_value=[SimpleNamespace(game_name="Elden Ring", url="/elden-ring")]
-        ),
+        search=AsyncMock(return_value=[SimpleNamespace(game_name="Elden Ring", url="/elden-ring")]),
     )
     plugin = main.GameTorrentPlugin.__new__(main.GameTorrentPlugin)
     plugin._closing = False
