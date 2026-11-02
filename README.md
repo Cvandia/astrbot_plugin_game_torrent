@@ -170,3 +170,9 @@ pytest -q
 <a href="https://github.com/Cvandia/astrbot_plugin_game_torrent/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Cvandia/astrbot_plugin_game_torrent&max=100" alt="项目贡献者" />
 </a>
+
+## LLM 自然语言搜索
+
+插件通过 AstrBot 的 `@filter.llm_tool` 注册 `search_game_torrent` 工具。在 AstrBot 中启用 LLM，使用支持工具调用的模型，并确认该工具已启用，即可说“帮我搜一下 Elden Ring”。
+
+工具使用当前游戏源，返回游戏名称、来源和发布页面链接，由 LLM 整理回复；最多返回 `max_results` 条。Aimhaven、Fitgirl 需要英文游戏名。没有结果或请求失败时会返回提示，不进入等待编号的交互流程。需要提取资源链接或二维码时，仍使用 `/搜游戏 游戏名` 命令。
